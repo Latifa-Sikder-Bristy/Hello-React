@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Todo from './todo'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,7 +10,12 @@ function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <Device name="laptop" price="55"></Device>
+      <Todo task="learn react"></Todo>
+      <Todo task="Explore Core concept"
+        isDone={true}></Todo>
+      <Todo task="Explore JSX concept" isDone></Todo>
+      <Todo task="Explore Props concept"></Todo>
+      {/* <Device name="laptop" price="55"></Device>
       <Device name="mobile" price="30"></Device>
       <Device name="watch" price="20"></Device>
       <Device></Device>
@@ -17,9 +23,9 @@ function App() {
       <Person></Person>
       <Person></Person>
       <Student grade=""></Student>
+      <Student grade={12} score="score"></Student>
       <Student></Student>
-      <Student></Student>
-      <Dev></Dev>
+      <Dev></Dev> */}
     </>
   )
 }
@@ -32,13 +38,13 @@ function Person() {
 }
 const { grade, score } = { grade: '7', score: '99' };
 //component
-function Student(props) {
-  console.log(props);
+function Student({ grade = 1, score = 0 }) {
+  console.log(grade, score);
   return (
     <div className='student'>
       <h3>This is a student</h3>
-      <p>Name:</p>
-      <p>Age: </p>
+      <p>Class: {grade}</p>
+      <p>Score: {score}</p>
     </div>  // JSX is valid here too!
   )
 }
